@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
+class MainCoordinator: NSObject, Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
@@ -19,6 +19,7 @@ class MainCoordinator: Coordinator {
     func start() {
         let vc = ViewController.instantiate()
         vc.coordinator = self
+        navigationController.delegate = self
         navigationController.pushViewController(vc, animated: false)
     }
     
@@ -43,5 +44,25 @@ class MainCoordinator: Coordinator {
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start()
+    }
+}
+
+extension MainCoordinator: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
+            return
+        }
+        
+        //if the NavVC contains our fromVC, we are pushing another VC on top. Don't do anything.
+        if navigationController.viewControllers.contains(fromViewController) {
+            return
+        }
+        
+        // TODO: Don't keep this as is!! unnecessary dependency!
+        
+        // if the fromVC is our child being popped off the NavVCs stack, call childDidFinish()
+        if let buyViewController = fromViewController as? BuyViewController {
+            childDidFinish(child: buyViewController.coordinator)
+        }
     }
 }
