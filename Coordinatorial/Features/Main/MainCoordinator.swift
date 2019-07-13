@@ -19,6 +19,7 @@ class MainCoordinator: NSObject, Coordinator {
     func start() {
         let vc = ViewController.instantiate()
         vc.coordinator = self
+        vc.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
         navigationController.delegate = self
         navigationController.pushViewController(vc, animated: false)
     }
