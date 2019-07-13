@@ -13,6 +13,8 @@ class BuyCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
+    var productID = 0
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -20,6 +22,7 @@ class BuyCoordinator: Coordinator {
     func start() {
         let vc = BuyViewController.instantiate()
         vc.coordinator = self
+        vc.selectedProduct = productID
         navigationController.pushViewController(vc, animated: true)
     }
     

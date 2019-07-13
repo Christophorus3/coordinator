@@ -34,19 +34,33 @@
                                     <action selector="createAccountTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xYG-f5-ZNW"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z1x-em-mBG">
+                                <rect key="frame" x="116" y="387" width="182" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cVZ-bI-ry4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="37L-RS-MLA"/>
                             <constraint firstItem="sBF-di-FdK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="47C-Xx-eYp"/>
+                            <constraint firstItem="z1x-em-mBG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="943-pc-R1E"/>
+                            <constraint firstItem="sBF-di-FdK" firstAttribute="top" secondItem="z1x-em-mBG" secondAttribute="bottom" constant="9" id="GKA-QB-pkv"/>
                             <constraint firstItem="cVZ-bI-ry4" firstAttribute="top" secondItem="sBF-di-FdK" secondAttribute="bottom" constant="23" id="Owb-d9-qxb"/>
                             <constraint firstItem="sBF-di-FdK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kYK-Qc-ueL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="productControl" destination="z1x-em-mBG" id="Ffd-Tc-Pz7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="110" y="21"/>
         </scene>
         <!--Buy-->
         <scene sceneID="BAr-2G-FzH">
@@ -61,14 +75,25 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <state key="normal" title="Buy"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6N-Dz-nz3">
+                                <rect key="frame" x="171.5" y="292" width="71" height="36"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="d6N-Dz-nz3" firstAttribute="centerX" secondItem="bUH-7N-P6F" secondAttribute="centerX" id="U5D-as-qU5"/>
                             <constraint firstItem="Id4-yp-3Ah" firstAttribute="centerX" secondItem="Q0j-8R-Xat" secondAttribute="centerX" id="VLo-35-qOs"/>
+                            <constraint firstItem="Id4-yp-3Ah" firstAttribute="top" secondItem="d6N-Dz-nz3" secondAttribute="bottom" constant="96" id="fde-Fr-dyQ"/>
                             <constraint firstItem="Id4-yp-3Ah" firstAttribute="centerY" secondItem="Q0j-8R-Xat" secondAttribute="centerY" id="fk0-yl-tD1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bUH-7N-P6F"/>
                     </view>
+                    <connections>
+                        <outlet property="productLabel" destination="d6N-Dz-nz3" id="h3D-Ds-2YL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAh-FP-ohG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

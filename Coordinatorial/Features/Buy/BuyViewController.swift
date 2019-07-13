@@ -10,6 +10,8 @@ import UIKit
 
 class BuyViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var productLabel: UILabel!
+    
     weak var coordinator: BuyCoordinator?
     
     var selectedProduct = 0
@@ -18,6 +20,7 @@ class BuyViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        productLabel.text = String(selectedProduct)
     }
     
 //    override func viewDidDisappear(_ animated: Bool) {

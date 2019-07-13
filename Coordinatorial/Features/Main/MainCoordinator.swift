@@ -32,9 +32,10 @@ class MainCoordinator: NSObject, Coordinator {
         }
     }
     
-    func buySubscription() {
+    func buySubscription(to productID: Int) {
         let child = BuyCoordinator(navigationController: navigationController)
         child.parentCoordinator = self
+        child.productID = productID
         childCoordinators.append(child)
         child.start()
     }
